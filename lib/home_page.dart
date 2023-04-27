@@ -10,7 +10,8 @@ class HomePage extends StatefulWidget {
 
 //gerencia o estado do widget
 class _HomePageState extends State<HomePage> {
-  final names = ['joão', 'maria', 'jurandir'];
+  final list = <String>[];
+  final controller = TextEditingController();
 
   //chamado ao iniciar o widget
   @override
@@ -30,18 +31,41 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: ListView.builder(
-            itemCount: names.length,
-            itemBuilder: (context, index) {
-              final name = names[index];
-              return ListTile(
-                title: Text(name),
-              );
-            },
-          )),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                    child: TextField(
+                  controller: controller,
+                )),
+                IconButton(
+                    onPressed: () {
+                      final text = controller.text;
+                      setState(() {
+                        list.add(text);
+                      });
+                      controller.clear();
+                    },
+                    icon: const Icon(Icons.add)),
+              ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  final item = list[index];
+                  return ListTile(
+                    title: Text(item),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
