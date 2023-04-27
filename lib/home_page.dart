@@ -31,10 +31,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.end,
-          // mainAxisAlignment: MainAxisAlignment.start,
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
