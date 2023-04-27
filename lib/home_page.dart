@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 //gerencia o estado do widget
 class _HomePageState extends State<HomePage> {
-  var counter = 0;
+  final names = ['joão', 'maria', 'jurandir'];
 
   //chamado ao iniciar o widget
   @override
@@ -31,30 +31,17 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Home'),
       ),
       body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              for (int i = 0; i < 10; i++)
-                Container(
-                  width: 80,
-                  height: 80,
-                  margin: const EdgeInsets.all(12),
-                  color: Colors.red,
-                ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
-      ),
+          width: double.infinity,
+          height: double.infinity,
+          child: ListView.builder(
+            itemCount: names.length,
+            itemBuilder: (context, index) {
+              final name = names[index];
+              return ListTile(
+                title: Text(name),
+              );
+            },
+          )),
     );
   }
 }
