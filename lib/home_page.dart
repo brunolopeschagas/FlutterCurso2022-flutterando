@@ -30,26 +30,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              width: 80,
-              height: 80,
-              color: Colors.red,
-            ),
-            Container(
-              width: 80,
-              height: 80,
-              color: Colors.blue,
-            ),
-            Container(
-              width: 80,
-              height: 80,
-              color: Colors.green,
-            ),
-          ],
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              for (int i = 0; i < 10; i++)
+                Container(
+                  width: 80,
+                  height: 80,
+                  margin: const EdgeInsets.all(12),
+                  color: Colors.red,
+                ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
