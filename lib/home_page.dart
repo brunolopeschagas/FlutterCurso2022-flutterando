@@ -31,38 +31,25 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            Row(
-              children: [
-                Expanded(
-                    child: TextField(
-                  controller: controller,
-                )),
-                IconButton(
-                    onPressed: () {
-                      final text = controller.text;
-                      setState(() {
-                        list.add(text);
-                      });
-                      controller.clear();
-                    },
-                    icon: const Icon(Icons.add)),
-              ],
+            Container(
+              color: Colors.red,
+              width: 100,
+              height: 100,
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: list.length,
-                itemBuilder: (context, index) {
-                  final item = list[index];
-                  return ListTile(
-                    title: Text(item),
-                  );
-                },
-              ),
-            )
+            Container(
+              color: Colors.blue,
+              width: 80,
+              height: 80,
+            ),
+            Container(
+              color: Colors.green,
+              width: 60,
+              height: 60,
+            ),
           ],
         ),
       ),
