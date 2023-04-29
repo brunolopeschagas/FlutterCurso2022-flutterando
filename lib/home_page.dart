@@ -35,6 +35,14 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.network(
+                'https://conteudo.imguol.com.br/c/entretenimento/de/2020/07/21/o-fotografo-bas-uterwijk-criou-imagem-de-jesus-cristo-com-uso-de-inteligencia-artificial-1595372819058_v2_450x600.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
             Container(
               color: Colors.red,
               width: 100,
